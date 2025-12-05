@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+requests
+langchain
+langchain-core
+langchain-community
+langchain-huggingface
+faiss-cpu
+sentence-transformers
+python-dotenv
+streamlit
+ollama
+docling
