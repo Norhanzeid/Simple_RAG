@@ -11,16 +11,6 @@ st.set_page_config(
     layout="centered"
 )
 
-# Load environment and configure API
-load_dotenv()
-api_key = os.getenv("GEMINI_API_KEY")
-
-if not api_key:
-    st.error("❌ GEMINI_API_KEY not found in .env file!")
-    st.stop()
-
-genai.configure(api_key=api_key)
-
 # Main title
 st.title("🤖 RAG Question Answering System")
 st.markdown("Ask questions about Natural Language Processing and AI!")
