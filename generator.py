@@ -3,7 +3,6 @@ from dotenv import load_dotenv
 import google.generativeai as genai
 from retriever import retrieve_documents
 
-
 def generate_answer(query, model_name="models/gemini-2.5-flash", k=3):
     """Generate an answer using RAG."""
     
@@ -47,3 +46,20 @@ Answer:"""
     response = model.generate_content(prompt)
     
     return response.text
+
+
+if __name__ == "__main__":
+    print("Testing RAG Answer Generation\n")
+    
+    # Test query
+    query = "What is Natural Language Processing?"
+    print(f"Question: {query}")
+    print("=" * 70)
+    
+    # Generate answer
+    answer = generate_answer(query, k=3)
+    
+    print("\n💡 Generated Answer:")
+    print("=" * 70)
+    print(answer)
+    print("=" * 70)
