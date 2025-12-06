@@ -18,27 +18,11 @@ def load_vector_db():
 
 def retrieve_documents(query, k=3):
     """
-    Retrieve the top-k most similar documents for a given query.
+    Retrieve the top-k most similar documents with similarity scores.
     
     Args:
         query (str): The search query
         k (int): Number of documents to retrieve (default: 3)
-    
-    Returns:
-        list: List of retrieved documents
-    """
-    vector_db = load_vector_db()
-    results = vector_db.similarity_search(query, k=k)
-    return results
-
-
-def retrieve_with_scores(query, k=3):
-    """
-    Retrieve documents with similarity scores.
-    
-    Args:
-        query (str): The search query
-        k (int): Number of documents to retrieve
     
     Returns:
         list: List of tuples (document, score)
