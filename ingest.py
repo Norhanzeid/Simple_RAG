@@ -27,6 +27,7 @@ def ingest_documents():
     # ----------- Load TXT -----------
 
     print("Loading TXT file...")
+
     try:
         txt_loader = TextLoader(
             r"C:\Users\HP\Downloads\NLP.txt",
@@ -36,12 +37,14 @@ def ingest_documents():
         txt_chunks = splitter.split_documents(txt_docs)
         documents.extend(txt_chunks)
         print(f"TXT loaded: {len(txt_chunks)} chunks created")
+
     except Exception as e:
         print(f"Error loading TXT: {e}")
 
     # ----------- Load PDF using Docling -----------
 
     print("Loading PDF file...")
+
     try:
         pdf_path = r"C:\Users\HP\Downloads\nlp-notes.pdf"
         converter = DocumentConverter()
@@ -53,6 +56,7 @@ def ingest_documents():
         pdf_chunks = splitter.split_documents(pdf_doc)
         documents.extend(pdf_chunks)
         print(f"PDF loaded: {len(pdf_chunks)} chunks created")
+        
     except Exception as e:
         print(f"Error loading PDF: {e}")
 
