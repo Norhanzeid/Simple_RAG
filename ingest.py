@@ -10,13 +10,14 @@ from langchain_core.documents import Document
 
 def ingest_documents():
 
-    """Ingest TXT and PDF files, chunk them, and save to FAISS vector database."""
+    """Ingest TXT and PDF files, chunk them,Then embedding and save to FAISS vector database."""
     
     # Create directory for vector database
 
     os.makedirs("data/vector_db", exist_ok=True)
     
     documents = []
+
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=512, 
         chunk_overlap=100,
@@ -56,7 +57,7 @@ def ingest_documents():
         pdf_chunks = splitter.split_documents(pdf_doc)
         documents.extend(pdf_chunks)
         print(f"PDF loaded: {len(pdf_chunks)} chunks created")
-        
+
     except Exception as e:
         print(f"Error loading PDF: {e}")
 
@@ -65,7 +66,10 @@ def ingest_documents():
         print("No documents to process!")
         return
     
+    ##################### Create Embeddings and Vector DB #####################
+
     print(f"\n Creating embeddings for {len(documents)} total chunks...")
+
     embedding = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
