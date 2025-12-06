@@ -28,22 +28,42 @@ def generate_answer(query, model_name="models/gemini-2.5-flash", k=3):
     # Create prompt
     prompt = f"""You are an expert AI assistant specializing in Natural Language Processing and AI topics.
 
+Your task is to provide a COMPREHENSIVE, DETAILED, and WELL-STRUCTURED answer based on the retrieved documents.
+
 Retrieved Documents:
 {context}
 
 User's Question: {query}
 
 Instructions:
-1. Answer using ONLY information from the retrieved documents
-2. Provide a clear, concise, and well-organized answer
-3. Use bullet points when appropriate
-4. If information is insufficient, state that clearly
+1. Provide a DETAILED and THOROUGH answer using ALL relevant information from the documents
+2. DO NOT give brief or short answers - explain concepts fully with examples and details
+3. Structure your answer with:
+   - A clear introduction explaining the topic
+   - Multiple detailed points with explanations
+   - Use bullet points or numbered lists for clarity
+   - Include examples, definitions, and key concepts from the documents
+   - Provide context and background information
+4. Aim for a comprehensive response (at least 150-200 words when possible)
+5. Write in a clear, educational, and informative style
+6. Include ALL relevant details from the retrieved documents
 
-Answer:"""
+Please provide a detailed and comprehensive answer:"""
 
-    # Generate response
+    # Generate response with config for longer outputs
     model = genai.GenerativeModel(model_name)
-    response = model.generate_content(prompt)
+    
+    generation_config = {
+        "temperature": 0.7,
+        "top_p": 0.95,
+        "top_k": 40,
+        "max_output_tokens": 2048,
+    }
+    
+    response = model.generate_content(
+        prompt,
+        generation_config=generation_config
+    )
     
     return response.text
 
