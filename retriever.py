@@ -1,7 +1,5 @@
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-import os
-
 
 def load_vector_db():
     """Load the FAISS vector database with embeddings."""
@@ -48,40 +46,3 @@ def retrieve_with_scores(query, k=3):
     vector_db = load_vector_db()
     results = vector_db.similarity_search_with_score(query, k=k)
     return results
-
-
-# -----------------------------
-if __name__ == "__main__":
-    print("🔍 RAG Retriever - Testing Document Retrieval\n")
-    
-    # Test queries
-    queries = [
-        "What is Natural Language Processing?",
-        "Explain tokenization in NLP",
-        "What are transformers in deep learning?"
-    ]
-    
-    for query in queries:
-        print(f"Query: {query}")
-        print("=" * 70)
-        
-        # Retrieve top 2 documents
-        results = retrieve_documents(query, k=2)
-        
-        for i, doc in enumerate(results, 1):
-            print(f"\n📄 Document {i}:")
-            print(doc.page_content[:300] + "..." if len(doc.page_content) > 300 else doc.page_content)
-            print("-" * 70)
-        
-        print("\n")
-    
-    # Example with scores
-    print("\n🎯 Retrieval with Similarity Scores:")
-    print("=" * 70)
-    query = "What is sentiment analysis?"
-    results_with_scores = retrieve_with_scores(query, k=2)
-    
-    for i, (doc, score) in enumerate(results_with_scores, 1):
-        print(f"\n📄 Document {i} (Score: {score:.4f}):")
-        print(doc.page_content[:200] + "..." if len(doc.page_content) > 200 else doc.page_content)
-        print("-" * 70)
