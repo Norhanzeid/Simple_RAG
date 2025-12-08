@@ -31,4 +31,3 @@ if st.button("Search", type="primary") and query:
             st.error(f"Error: {str(e)}")
 # Footer
 st.divider()
-st.caption("Built with Streamlit, LangChain, FAISS, and Google Gemini AI")
