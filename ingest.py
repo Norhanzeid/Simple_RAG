@@ -56,10 +56,10 @@ def ingest_documents():
         pdf_doc = [Document(page_content=pdf_markdown, metadata={"source": "nlp-notes.pdf"})]
         pdf_chunks = splitter.split_documents(pdf_doc)
         documents.extend(pdf_chunks)
-        print(f"✅ PDF 1 loaded: {len(pdf_chunks)} chunks created")
+        print(f"PDF 1 loaded: {len(pdf_chunks)} chunks created")
 
     except Exception as e:
-        print(f"❌ Error loading PDF 1: {e}")
+        print(f"Error loading PDF 1: {e}")
 
     # ----------- Load PDF 2 (Reading4-NLP.pdf) -----------
 
@@ -75,10 +75,10 @@ def ingest_documents():
         pdf_doc2 = [Document(page_content=pdf_markdown2, metadata={"source": "Reading4-NLP.pdf"})]
         pdf_chunks2 = splitter.split_documents(pdf_doc2)
         documents.extend(pdf_chunks2)
-        print(f"✅ PDF 2 loaded: {len(pdf_chunks2)} chunks created")
+        print(f"PDF 2 loaded: {len(pdf_chunks2)} chunks created")
 
     except Exception as e:
-        print(f"❌ Error loading PDF 2: {e}")
+        print(f" Error loading PDF 2: {e}")
 
     # ----------- Create Vector DB -----------
     if not documents:
@@ -97,10 +97,10 @@ def ingest_documents():
     vector_db = FAISS.from_documents(documents, embedding)
     vector_db.save_local("data/vector_db")
 
-    print(f"\n✅ Ingestion Completed Successfully!")
-    print(f"   📊 Total chunks: {len(documents)}")
-    print(f"   📁 Saved to: data/vector_db")
-    print(f"\n📋 Summary:")
+    print(f"\n Ingestion Completed Successfully!")
+    print(f"   Total chunks: {len(documents)}")
+    print(f"   Saved to: data/vector_db")
+    print(f"\n Summary:")
     print(f"   - Combined all TXT and PDF files into single vector database")
     print(f"   - Ready for semantic search and question answering")
 
