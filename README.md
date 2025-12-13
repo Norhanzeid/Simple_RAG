@@ -56,32 +56,3 @@ python app.py
 # or if streamlit is used:
 streamlit run app.py
 ```
-
-Adjust commands depending on the app's implementation.
-
-## Push to GitHub
-
-If you haven't initialized a git repo yet:
-
-```bash
-git init
-git add .
-git commit -m "Add README"
-git branch -M main
-git remote add origin https://github.com/<your-username>/<your-repo>.git
-git push -u origin main
-```
-
-Replace `<your-username>` and `<your-repo>` with your repository values. If your repo already exists remotely, simply add the remote and push.
-
-## Contributing
-
-Feel free to open issues or PRs. Add unit tests for changes where practical.
-
-## License
-
-Add a license file if you wish (e.g., `LICENSE`).
-
----
-
-If you want, I can also commit and push this README for you — provide GitHub remote URL or credentials, or I can show the exact commands to run locally.
