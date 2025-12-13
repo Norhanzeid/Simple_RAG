@@ -40,19 +40,3 @@ python -m venv venv
 ```powershell
 pip install -r requirements.txt
 ```
-
-## Usage
-
-- To ingest documents:
-
-```powershell
-python ingest.py
-```
-
-- To run the app (if it uses Streamlit or a Flask/FastAPI wrapper):
-
-```powershell
-python app.py
-# or if streamlit is used:
-streamlit run app.py
-```
