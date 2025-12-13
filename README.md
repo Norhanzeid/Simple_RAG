@@ -2,6 +2,13 @@
 
 A minimal Retrieval-Augmented Generation (RAG) example project.
 
+<img width="1920" height="1080" alt="Screenshot (538)" src="https://github.com/user-attachments/assets/deea1cb9-91ec-4e73-b0a8-5afae36ae352" />
+
+<img width="1920" height="1080" alt="Screenshot (539)" src="https://github.com/user-attachments/assets/50a43305-9184-41d1-b76a-a2d5ac606876" />
+
+<img width="1920" height="1080" alt="Screenshot (540)" src="https://github.com/user-attachments/assets/7c7b508d-a181-4fe3-9e43-a1228b4770ed" />
+
+
 ## Overview
 
 This repository demonstrates a simple RAG pipeline using a local vector store and a retrieval layer to augment generation. It contains ingestion, generation, and a small app to serve or test the pipeline.
