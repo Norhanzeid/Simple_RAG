@@ -11,8 +11,7 @@ A minimal Retrieval-Augmented Generation (RAG) example project.
 
 ## Overview
 
-This repository demonstrates a simple RAG pipeline using a local vector store and a retrieval layer to augment generation. It contains ingestion, generation, and a small app to serve or test the pipeline.
-
+This project is designed to answer questions about Natural Language Processing (NLP) and Transformer models by retrieving relevant document context and using a generator to produce informed responses.
 ## Files
 
 - `app.py` - Small app / demo entrypoint.
